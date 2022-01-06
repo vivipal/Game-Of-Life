@@ -1,7 +1,5 @@
 #include <iostream>
 
-#include "Cell.h"
-#include "vibes.h"
 #include "World.h"
 
 #include <unistd.h>

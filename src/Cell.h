@@ -1,7 +1,7 @@
 #ifndef __CELL_H__
 #define __CELL_H__
 
-#include <array>
+#include <utility> // use std::pair
 
 enum CellState {ALIVE, NEWLY_ALIVE, DEAD, NEWLY_DEAD};
 

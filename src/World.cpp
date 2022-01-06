@@ -1,8 +1,6 @@
 #include "World.h"
 #include "vibes.h"
 
-#include <iostream>
-
 World::World(int w, int h): m_width(w),m_height(h) {
 
   // initialisation of the grid representing the board
@@ -80,10 +78,6 @@ void World::live(){
       for (int i = -1; i <= 1; i++) {
         for (int j = -1; j <= 1; j++) {
           if (!(i==0 && j==0) && y+i>=0 && x+j>=0 && x+j<m_width && y+i <m_height){
-            // m_grid[y][x].set_alive();
-            // m_grid[y][x].display();
-            // m_grid[y][x].set_alive(false);
-            // std::cout << "  " <<y+i << " "<< x+j << " ? " << m_grid[y+i][x+j].alive()<< '\n';
             m_grid[y+i][x+j].alive() ? S++:true;
           }
         }
@@ -102,15 +96,11 @@ void World::create_spaceship(int x, int y){
   */
   std::vector<POSITION> spaceship = {{-1,0}, {-2,1}, {-0,2}, {-1,2}, {-2,2}};
   translate_coords(spaceship,x,y);
-  for (auto it=spaceship.begin(); it!=spaceship.end(); it++){
-    m_grid[it->second][it->first].set_alive();
-  }
+  set_alive(spaceship);
 }
 
 void World::create_cannon(int x, int y){
   std::vector<POSITION> cannon = {{ 1,5},{ 2,5},{ 1,6},{ 2,6},{35,3},{36,3},{35,4},{36,4},{13,3},{14,3},{12,4},{16,4},{11,5},{17,5},{11,6},{15,6},{17,6},{18,6},{11,7},{17,7},{12,8},{16,8},{13,9},{14,9},{25,1},{23,2},{25,2},{21,3},{22,3},{21,4},{22,4},{21,5},{22,5},{23,6},{25,6},{25,7}};
   translate_coords(cannon,x,y);
-  for (auto it=cannon.begin(); it!=cannon.end(); it++){
-    m_grid[it->second][it->first].set_alive();
-  }
+  set_alive(cannon);
 }

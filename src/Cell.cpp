@@ -53,11 +53,7 @@ bool Cell::alive() const{
   /**
   * return the state of the cell
   */
-  if (m_state==ALIVE || m_state==NEWLY_ALIVE){
-    return true;
-  }else{
-    return false;
-  }
+  return m_state==ALIVE || m_state==NEWLY_ALIVE;
 }
 
 POSITION Cell::get_pos() const{
